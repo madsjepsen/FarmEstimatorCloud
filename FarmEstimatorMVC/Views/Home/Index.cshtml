@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+@model FarmEstimatorMVC.Models.FarmEstimatorModel
+<div class="text-center">
+    <h1 class="display-4">Welcome to farm estimator</h1>
+    <p>Copy paste your arriving troops from the rally point in here. The more pages you copy the better, but you need to maintain order </p>
+    @using (Html.BeginForm("Calculate", "Home", FormMethod.Post))
+    {
+    @Html.TextAreaFor(m => m.Data, new { @class = "form-control" })
+    <input type="submit" value="Calculate" />
+    }
+    <p>Estimated farming: @Html.TextBoxFor(m =>m.PerHourFarming) </p>
+</div>
